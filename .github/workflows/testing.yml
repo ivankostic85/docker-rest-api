@@ -6,7 +6,7 @@ on:
   
 jobs:
   testing:
-    runs-on: ubuntu-latest
+    runs-on: kostic-runner
     steps:
       - run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
         shell: bash
