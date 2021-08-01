@@ -1,7 +1,7 @@
 version: '3'
 services:
   api:
-  container_name: docker-rest-api
+    container_name: docker-rest-api
     image: ivankostic/docker-rest-api
     ports:
       - 8000:80
