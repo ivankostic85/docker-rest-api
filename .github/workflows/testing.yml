@@ -1,0 +1,12 @@
+
+name: TEST
+on:
+
+  workflow_dispatch:
+  
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
+        shell: bash
