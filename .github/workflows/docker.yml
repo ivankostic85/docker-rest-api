@@ -9,7 +9,8 @@ on:
 
 jobs:
   docker:
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
+    runs-on: kostic-gh-runner
     steps:
       -
         name: Set up QEMU
