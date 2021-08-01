@@ -23,7 +23,12 @@ def check_status():
 #     return {"item_id": item_id, "q": q}
 
 @app.get("/docker")
-def docker():
+async def docker():
     dockerVer = dockerClient.version()
     # print(dockerVer)
     return dockerVer
+
+@app.get("/containers")
+async def get_containers():
+    containers = dockerClient.containers.list()
+    return containers
