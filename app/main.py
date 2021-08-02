@@ -6,7 +6,8 @@ from fastapi import FastAPI
 import docker
 
 app = FastAPI()
-dockerClient = docker.APIClient(base_url='unix://var/run/docker.sock')
+# dockerClient = docker.APIClient(base_url='unix://var/run/docker.sock')
+dockerClient = docker.from_env()
 
 
 @app.get("/")
@@ -27,8 +28,17 @@ async def docker():
     dockerVer = dockerClient.version()
     # print(dockerVer)
     return dockerVer
+    
+@app.get("/docker-ping")
+async def docker_ping():
+    return dockerClient.ping()
 
 @app.get("/containers")
 async def get_containers():
     containers = dockerClient.containers.list()
     return containers
+
+@app.get("/images")
+async def get_images():
+    images = dockerClient.images.list()
+    return images
